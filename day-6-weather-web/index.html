@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ANY - WEATHER</title>
+</head>
+
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text " placeholder="enter the city name" spellcheck="false">
+            <button><img src="images/search.png" alt="search"></button>
+        </div>
+        <div class="error">
+            <p>Invalid city name</p>
+        </div>
+        <div class="weather">
+            <img src="images/clouds.png" alt="weather" class="weather-icon">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png" alt="">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="images/wind.png" alt="">
+                    <div>
+                        <p class="wind">15km/hr</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "7dfaaf053be5b7d44decf0fe8e11d3c5";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const searchBox = document.querySelector(".search input"); // this will get the city name enterd by user
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+            if (response.status == 404) {
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
+            } else {
+
+                var data = await response.json(); // this extract the data from JSON from the response
+
+
+                document.querySelector(".city").innerHTML = data
+                    .name; // we will manipulte the data of city and other values similarly
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/hr";
+
+                if (data.weather[0].main == "Clouds") {
+                    weatherIcon.src = "images/clouds.png";
+                } else if (data.weather[0].main == "Clear") {
+                    weatherIcon.src = "images/clear.png";
+                } else if (data.weather[0].main == "Rain") {
+                    weatherIcon.src = "images/rain.png";
+                } else if (data.weather[0].main == "Drizzle") {
+                    weatherIcon.src = "images/Drizzle.png";
+                } else if (data.weather[0].main == "Mist") {
+                    weatherIcon.src = "images/mist.png";
+                } else if (data.weather[0].main == "Snow") {
+                    weatherIcon.src = "images/snow.png";
+                }
+                document.querySelector(".weather").style.display = "block";
+                document.querySelector(".error").style.display = "none";
+
+            }
+
+        }
+
+        searchBtn.addEventListener("click",
+            () => { // when we will click the search button value of the city will be taken by the function searchBox.value
+                checkWeather(searchBox.value);
+            })
+
+        checkWeather(); // by this we are calling the function to updat the webpage
+    </script>
+
+
+
+</body>
+
+</html>
