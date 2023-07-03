@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/e5d52f9a2e.js" crossorigin="anonymous"></script>
+    <title>Coding Editor</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <label> <i class="fa-brands fa-html5"></i> HTML</label>
+        <textarea id="html-code" onkeyup="run()" ></textarea>
+        
+        <label> <i class="fa-brands fa-css3"></i> CSS</label>
+        <textarea id="css-code" onkeyup="run()" ></textarea>
+        
+        <label> <i class="fa-brands fa-js"></i> JAVASCRIPT</label>
+        <textarea id="js-code" onkeyup="run()" ></textarea>
+    </div>
+    <div class="right">
+        <label ><i class="fa-solid fa-play"></i> OUTPUT </label>
+        <IFrame id="output"></IFrame>
+    </div>
+</div>
+
+<script>
+
+function run(){
+    let htmlCode = document.getElementById("html-code").value;
+    let cssCode = document.getElementById("css-code").value;
+    let jsCode = document.getElementById("js-code").value;
+    let output = document.getElementById("output");
+
+    output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode+"</style";
+    output.contentWindow.eval(jsCode);
+}
+</script>
+
+
+</body>
+</html>
