@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    line-height: 1.8em;
+    margin: 0;
+    font-family: sans-serif "Lato";
+    font-weight: 400;
+    height: 100%;
+    color: grey;  
+}
+.pimg1{
+    background-image: url(../images/image1.jpg);
+    min-height: 100%;
+   
+}
+.pimg2{
+    background-image: url(../images/image2.jpg);
+    min-height: 100%;
+}
+.pimg3{
+    background-image: url(../images/image3.jpg);
+    min-height: 100%;
+}
+.pimg1,
+.pimg2,
+.pimg3{
+    position: relative;      /* by assigning position relative we can easily handle image according to our need*/
+    background-position:center; /* as the name suggest this will bring image to center*/
+    background-size:cover;   /* this will bring down the image in the whole screen */
+    background-repeat: no-repeat;
+    transition: width 2s linear 1s;
+    background-attachment: fixed; /* this will keep the images fixed at thier point and evrything over it will move */
+}
+.ptext{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  color: black;
+  font-size: 27px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+.textBg{
+    background: grey;
+    color: whitesmoke;
+    padding: 20px;
+}
+.section{
+    padding: 50px 80px;
+    text-align: center;
+}
+.section-light{
+    background-color: aliceblue;
+}
+.section-Dark{
+    background-color: antiquewhite;
+}
+.section-Dark2{
+    background-color: azure;
+}
