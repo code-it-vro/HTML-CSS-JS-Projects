@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: bisque;
+}
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.apply_box{
+    max-width: 600px;
+    padding: 30px ;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 4px 3px 5px rgba(1, 1, 1, 0.5);
+    border-radius: 10px;
+}
+h1 span{
+    margin-left: 20px;
+    font-size: 25px;
+}
+.form_container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); /* by this the line will repeat form for every form_container by minmax - if there is enough space then 200px else be 1fr */
+    gap: 20px;
+
+}
+.form_control {
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+input ,select,textarea{
+    padding: 6px 10px;
+    border: 1.5px solid grey;
+    border-radius: 6px;
+    font-size: 15px;
+}
+.button_container{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+   
+}
+
+button{
+    background-color: rgb(236, 111, 87);
+    font-weight: bold ;
+    border: transparent solid 2px;
+    padding: 5px 10px;
+    color: antiquewhite;
+    border-radius: 8px;
+    transition: 0.3s ease-in;
+}
+button:hover{
+    background-color: rgb(133, 127, 255);
+    border: 2px solid;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.textarea_control{
+    grid-column: 1/span 2; /* we can access seprate grid  and this will grab spaceing of 2 grid    
+    it means that the grid item should start at the first column and span across two columns.
+    -- 1 represents the starting column index. In this case, the grid item starts at the first column of the grid.
+
+    -- span 2 specifies the number of columns the grid item should span. It indicates that the grid item should occupy two columns starting from the first column.*/
+}
+.textarea_control textarea{
+    width: 100%;
+}
+@media (max-width: 460px){
+    .textarea_control {
+        grid-column: 1/span 1;  /*  here we made span2 - to span 1 now it will take area of one grid*/
+    }
+
+}
