@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body
+{
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: sans-serif;
+}
+
+/* navigation */
+nav{
+    box-shadow: 5px 5px 5px rgba(1, 1, 1, 0.4);
+    position: sticky;
+    top: 0;
+    margin-bottom: 32px;
+    padding: 15px;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.bar_icon{
+    font-size: x-large;
+}
+.hero{
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    border-radius: 50%;
+}
+.hero_content{
+    display: flex;  /* since this will distribute everything in the container to tacclle that we will give it a direction below */
+    flex-direction: column; 
+}
+.tag{
+    background-color: lightgreen;
+    padding: 5px 10px;
+    color: aliceblue;
+    align-self: flex-start;
+}
+.hero_content h1{
+    font-size: 72px;
+    font-weight: 500;
+}
+button{
+    padding: 10px 15px;
+    border-color: purple;
+    border-width: 5px;
+    transition: 0.2s ease-in-out;
+    align-self: flex-start;
+    margin-top: 10px;
+}
